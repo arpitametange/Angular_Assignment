@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { read, utils } from 'xlsx';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-sidenav',
@@ -11,7 +12,7 @@ import { read, utils } from 'xlsx';
 export class SidenavComponent {
   data: any;
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient,private dataService: DataService) { }
   form = new FormControl('');
   JobList:any
 
@@ -33,17 +34,8 @@ export class SidenavComponent {
 
     })}
 
-
-
-    // chips: string[] = ['Chip 1', 'Chip 2', 'Chip 3'];
-
-  removeChip(JobList: string): void {
-    const index = this.data.indexOf(JobList);
-    if (index >= 0) {
-      this.data.splice(index, 1);
-    }
+  search(query:any): void {
+    this.dataService.setSearchData(query.target.value);
   }
-
-
     
 }

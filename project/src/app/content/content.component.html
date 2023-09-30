@@ -22,13 +22,13 @@
        </tr>
      </thead>
      <tbody>
-       <tr *ngFor="let row of data">
+       <tr *ngFor="let row of data | filter: searchData ">
          <td>{{ row.Name }}</td>
          <td>{{ row.JobTitles }}</td>
          <td>{{row.CompanyName}}</td>
          <td>{{row.CompanySize}}</td>
          <td>{{row.Country}}</td>
-         <!-- Display more columns based on your data structure -->
+        
        </tr>
      </tbody>
    </table>

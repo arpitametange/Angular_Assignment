@@ -1,7 +1,7 @@
 <div style="margin-top: 53px; margin-left: 12px;">
 <div >
   <h2><strong>Name</strong></h2> 
-  <input type="text" style="height: 30px;" placeholder="Enter name...">
+  <input type="text" (keyup.enter)="search($event)"  class="input" style="height: 30px;" placeholder="Enter name...">
 </div>
 <br>
 <h2><strong>Job Title</strong> </h2>
@@ -32,11 +32,3 @@
 </mat-form-field>
 </div>
 
-<div>
-  
-    <mat-chip *ngFor="let chip of JobList" [removable]="true" (removed)="removeChip(chip)">
-      {{ chip }}
-      <mat-icon matChipRemove>cancel</mat-icon>
-    </mat-chip>
-  <!-- </mat-chip-list> -->
-</div>

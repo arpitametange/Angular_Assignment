@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
+import { Subject } from 'rxjs';
 import { read, utils } from 'xlsx';
+import { DataService } from '../data.service';
 @Component({
   selector: 'app-content',
   templateUrl: './content.component.html',
@@ -9,8 +11,12 @@ import { read, utils } from 'xlsx';
 })
 export class ContentComponent {
   data: any;
-
-  constructor(private http:HttpClient) { }
+  searchData: any;
+  constructor(private http:HttpClient,private dataService: DataService) {
+    this.dataService.getSearchData().subscribe(data => {
+      this.searchData = data;
+    });
+   }
 
   ngOnInit() {
    
@@ -33,9 +39,7 @@ export class ContentComponent {
 
 
 
-      // Convert ArrayBuffer to Uint8Array
-
-    // Parsing the Excel data
+      
     
     
     
