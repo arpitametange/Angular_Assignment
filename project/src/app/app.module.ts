@@ -15,12 +15,17 @@ import {  HttpClientModule } from '@angular/common/http';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ContentComponent } from './content/content.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
-
+import {MatAutocompleteSelectedEvent, MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatChipInputEvent, MatChipsModule} from '@angular/material/chips'
+import { NgFor, AsyncPipe } from '@angular/common';
+import {MatIconModule} from '@angular/material/icon';
+import { FilterPipe } from './filter.pipe';
 @NgModule({
   declarations: [
     AppComponent,
     ContentComponent,
-    SidenavComponent
+    SidenavComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
@@ -35,7 +40,15 @@ import { SidenavComponent } from './sidenav/sidenav.component';
      ReactiveFormsModule,
      HttpClientModule,
      MatSnackBarModule,
-     MatSelectModule
+     MatSelectModule,
+     FormsModule,
+    MatFormFieldModule,
+    MatChipsModule,
+    NgFor,
+    MatIconModule,
+    MatAutocompleteModule,
+    ReactiveFormsModule,
+    AsyncPipe,
   ],
   providers: [],
   bootstrap: [AppComponent]

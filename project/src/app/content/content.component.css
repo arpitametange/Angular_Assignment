@@ -1,0 +1,19 @@
+th{
+   font-weight: bold;
+   font-size: medium;
+
+}
+th,tr,table,td{
+    text-align: center;
+}
+nav{
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+
+}
+thead{
+    position: sticky;
+    position: -webkit-sticky;
+    top: 75px;
+}

@@ -1,7 +1,35 @@
-<nav class="navbar navbar-dark bg-dark">
+<nav class="navbar navbar-dark " style="background-color: rgb(244, 232, 232);">
     <div class="container-fluid">
       
-       <h1 style="color: antiquewhite;">OFFICE DATA</h1>
+       <h1 style="color: rgb(16, 16, 15); padding-left: 450px; padding-top: 12px;"><b>OFFICE DATA</b> </h1>
+<!-- content.component.html -->
 
+
+ 
     </div>
   </nav>
+
+  <div *ngIf="data" style="margin-top: 12px;">
+   <table class="table table-striped">
+     <thead class="bg-danger">
+       <tr>
+         <th scope="col" >Name</th>
+         <th scope="col" >Job Title</th>
+         <th scope="col" >Company Name</th>
+         <th scope="col" >Company Size</th>
+         <th scope="col" >Country</th>
+       
+       </tr>
+     </thead>
+     <tbody>
+       <tr *ngFor="let row of data">
+         <td>{{ row.Name }}</td>
+         <td>{{ row.JobTitles }}</td>
+         <td>{{row.CompanyName}}</td>
+         <td>{{row.CompanySize}}</td>
+         <td>{{row.Country}}</td>
+         <!-- Display more columns based on your data structure -->
+       </tr>
+     </tbody>
+   </table>
+ </div>

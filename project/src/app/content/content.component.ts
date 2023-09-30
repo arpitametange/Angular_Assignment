@@ -13,20 +13,32 @@ export class ContentComponent {
   constructor(private http:HttpClient) { }
 
   ngOnInit() {
-    const file = new File(['Data.xlsx'], 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+   
+      this.http.get('/assets/Data.xlsx', { responseType: 'arraybuffer' }).subscribe(
+        (data: any) => {
+          const datas = new Uint8Array(data); // Convert ArrayBuffer to Uint8Array
 
-    const reader = new FileReader();
-    reader.onload = (e: any) => {
-      const workbook = read(e.target.result);
-      const worksheet = workbook.Sheets[workbook.SheetNames[0]];
-      this.data = utils.sheet_to_json(worksheet);
-    };
+          // Parsing the Excel data
+          const workbook = read(datas, { type: 'array' });
+          const worksheet = workbook.Sheets[workbook.SheetNames[0]];
+          this.data = utils.sheet_to_json(worksheet);
+          console.log(this.data);
+        })}
 
-    reader.readAsArrayBuffer(file);
-    this.http.get('/src/assets/Data.xlsx').subscribe((data) => {
-      this.data = data;
-    });
-  }
+        
+    
+      
+      }
 
 
-}
+
+
+      // Convert ArrayBuffer to Uint8Array
+
+    // Parsing the Excel data
+    
+    
+    
+  
+
+
