@@ -1,82 +1,85 @@
 <mat-sidenav-container>
-  <mat-sidenav mode="side"  opened>
-    <div style="margin-top: 53px; margin-left: 22px;">
-      <div >
-        <h2><strong>Name</strong></h2> 
+  <!-- Sidebar Content -->
+  <mat-sidenav mode="side" opened>
+    <div style="margin-top: 53px; margin-left: 22px">
+      <!-- Search by Name -->
+      <div>
+        <h2><strong>Name</strong></h2>
         <mat-form-field class="example-full-width">
           <mat-label>Name</mat-label>
-          <input #searchName  matInput placeholder="Ex. linda" >
+          <!-- Input field for name search -->
+          <input #searchName matInput placeholder="Ex. linda" />
         </mat-form-field>
       </div>
-      <br>
-      <h2><strong>Job Title</strong> </h2>
+      <br />
+      <!-- Filter by Job Title -->
+      <h2><strong>Job Title</strong></h2>
       <mat-form-field class="">
         <mat-label>Job Title</mat-label>
-        <mat-select [formControl]="form" 
-        [(ngModel)]="selectedJobTitles" multiple  data-te-select-clear-button="true">
-          <mat-option  *ngFor="let topping of data" [value]="topping.JobTitles">{{topping.JobTitles}}</mat-option>
+        <mat-select  multiple data-te-select-clear-button="true">
+          <!-- Options for Job Titles selection -->
+          <mat-option *ngFor="let topping of data" [value]="topping.JobTitles">{{ topping.JobTitles }}</mat-option>
         </mat-select>
       </mat-form-field>
+      <!-- Filter by Employees -->
       <h2><strong>Employees</strong></h2>
-      <div><mat-form-field class="">
-        <mat-label>Employees</mat-label>
-        <mat-select [formControl]="form" multiple  data-te-select-clear-button="true">
-          <mat-option *ngFor="let topping of data" [value]="topping">{{topping.CompanySize}}</mat-option>
-        </mat-select>
-      </mat-form-field></div>
-      
-      
       <div>
-      
+        <mat-form-field class="">
+          <mat-label>Employees</mat-label>
+          <mat-select multiple data-te-select-clear-button="true">
+            <!-- Options for Company Size selection -->
+            <mat-option *ngFor="let topping of data" [value]="topping.CompanySize">{{ topping.CompanySize }}</mat-option>
+          </mat-select>
+        </mat-form-field>
       </div>
+
+      <div></div>
+      <!-- Filter by Company Name -->
       <h2><strong>Company</strong></h2>
       <mat-form-field class="">
         <mat-label>Company</mat-label>
-        <mat-select [formControl]="form" multiple  data-te-select-clear-button="true">
-          <mat-option   *ngFor="let topping of data" [value]="topping">{{topping.CompanyName}}</mat-option>
+        <mat-select multiple data-te-select-clear-button="true">
+          <!-- Options for Company Name selection -->
+          <mat-option  *ngFor="let topping of data" [value]="topping.CompanyName">{{ topping.CompanyName }}</mat-option>
         </mat-select>
       </mat-form-field>
-      </div>
-      
-      
-
-
+    </div>
   </mat-sidenav>
 
-
+  <!-- Main Content Area -->
   <mat-sidenav-content>
-  
-    <nav class="navbar navbar-dark " style="background-color: rgb(244, 232, 232);">
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-dark" style="background-color: rgb(244, 232, 232)">
       <div class="container-fluid">
-        
-         <h1 style="color: rgb(16, 16, 15); padding-left: 450px; padding-top: 12px;"><b>OFFICE DATA</b> </h1>
+        <h1 style="color: rgb(16, 16, 15); padding-left: 450px; padding-top: 12px">
+          <b>OFFICE DATA</b>
+        </h1>
       </div>
     </nav>
-  
-    <div *ngIf="data" style="margin-top: 12px;">
-     <table class="table table-striped">
-       <thead class="bg-danger">
-         <tr>
-           <th scope="col" >Name</th>
-           <th scope="col" >Job Title</th>
-           <th scope="col" >Company Name</th>
-           <th scope="col" >Company Size</th>
-           <th scope="col" >Country</th>
-         
-         </tr>
-       </thead>
-       <tbody>
-         <tr *ngFor="let row of data | filter: searchName.value ">
-           <td>{{ row.Name }}</td>
-           <td>{{ row.JobTitles }}</td>
-           <td>{{row.CompanyName}}</td>
-           <td>{{row.CompanySize}}</td>
-           <td>{{row.Country}}</td>
-         </tr>
-       </tbody>
-     </table>
-   </div>
-  
 
+    <!-- Table displaying filtered data -->
+    <div *ngIf="data" style="margin-top: 12px">
+      <table class="table table-striped">
+        <thead class="bg-danger">
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Job Title</th>
+            <th scope="col">Company Name</th>
+            <th scope="col">Company Size</th>
+            <th scope="col">Country</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Display filtered data based on searchName.value -->
+          <tr *ngFor="let row of data | filter: searchName.value">
+            <td>{{ row.Name }}</td>
+            <td>{{ row.JobTitles }}</td>
+            <td>{{ row.CompanyName }}</td>
+            <td>{{ row.CompanySize }}</td>
+            <td>{{ row.Country }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
