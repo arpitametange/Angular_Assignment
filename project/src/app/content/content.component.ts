@@ -15,13 +15,13 @@ export class ContentComponent {
 
   // side nav code
   data: any;
-  selectedJobTitles:any=[]
+  selectedJobTitles:any
   constructor(private http:HttpClient,private dataService: DataService) {
-    this.dataService.setSearchData(this.selectedJobTitles)
+    // this.dataService.setSearchData(this.selectedJobTitles)
 
-    this.dataService.getSearchData().subscribe(data => {
-      this.searchData = data;
-    });
+    // this.dataService.getSearchData().subscribe(data => {
+    //   this.searchData = data;
+    // });
    }
   form = new FormControl('');
   JobList:any

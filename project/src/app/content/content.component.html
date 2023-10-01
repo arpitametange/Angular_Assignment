@@ -3,8 +3,10 @@
     <div style="margin-top: 53px; margin-left: 22px;">
       <div >
         <h2><strong>Name</strong></h2> 
-        <input matInput #searchName type="text"   class="input" style="height: 30px;" placeholder="Enter name...">
-
+        <mat-form-field class="example-full-width">
+          <mat-label>Name</mat-label>
+          <input #searchName  matInput placeholder="Ex. linda" >
+        </mat-form-field>
       </div>
       <br>
       <h2><strong>Job Title</strong> </h2>

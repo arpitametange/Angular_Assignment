@@ -24,7 +24,7 @@ th{
  
  }
  th,tr,table,td{
-     text-align: center;
+     text-align: left;
  }
  nav{
      position: sticky;
