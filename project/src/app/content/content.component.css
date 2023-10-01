@@ -42,7 +42,7 @@ th{
     font-family: 'Playfair Display SC', serif; /* Set font family */
     font-family: 'Young Serif', serif; /* Additional font family (will override the previous one) */
     color: rgb(14, 14, 14); /* Set text color */
-    padding-left: 450px; /* Set left padding */
+    padding-left: 400px; /* Set left padding */
     padding-top: 12px; /* Set top padding */
 }
 
