@@ -1,11 +1,11 @@
 mat-sidenav-container{
     height: 100%;
-    /* width: 90%; */
     padding-top: 0;
+    overflow: hidden;
 }
 
 mat-sidenav{
-    background-color: rgb(244, 232, 232);
+    background-color: #85bab9;
     width: 300px;
 }
 
@@ -34,11 +34,19 @@ th{
  thead{
      position: sticky;
      position: -webkit-sticky;
-     top: 75px;
+     top: 60px;
  }
 
- .office{
-    font-family: 'Playfair Display SC', serif;
-font-family: 'Young Serif', serif;
-color: rgb(30, 9, 49);
- }
+/* Styles for elements with class 'office' */
+.office {
+    font-family: 'Playfair Display SC', serif; /* Set font family */
+    font-family: 'Young Serif', serif; /* Additional font family (will override the previous one) */
+    color: rgb(14, 14, 14); /* Set text color */
+    padding-left: 450px; /* Set left padding */
+    padding-top: 12px; /* Set top padding */
+}
+
+
+
+  
+  

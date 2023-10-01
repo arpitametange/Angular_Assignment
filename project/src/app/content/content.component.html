@@ -4,9 +4,10 @@
     <div style="margin-top: 53px; margin-left: 22px">
       <!-- Name Search -->
       <div>
-        <h2><span class="material-icons">
-          perm_contact_calendar
-          </span><strong style="margin-left: 4px;">Name</strong></h2>
+        <h2>
+          <span class="material-icons"> perm_contact_calendar </span
+          ><strong style="margin-left: 4px">Name</strong>
+        </h2>
         <mat-form-field class="example-full-width">
           <mat-label>Name</mat-label>
           <input [(ngModel)]="searchName" matInput placeholder="Ex. linda" />
@@ -14,36 +15,72 @@
       </div>
       <br />
       <!-- Job Titles Chips -->
-      <h2><span class="material-icons">
-        workspace_premium
-        </span><strong>Job Title</strong>
+      <h2>
+        <span class="material-icons"> workspace_premium </span
+        ><strong style="margin-left: 9px">Job Title</strong>
         <!-- Display the count of selected job titles -->
-        <span style="padding-left: 20px; padding-right: 6px;margin: 50px; border: 1px solid black ;border-radius: 12px;"><i class="fa fa-times" aria-hidden="true"></i> {{ getSelectedJobTitlesCount() }}</span></h2>
-        
+        <span 
+          style="
+            padding-left: 10px;
+            padding-right: 6px;
+            margin: 40px;
+            border: 1px solid black;
+            border-radius: 12px;
+          "
+          ><i class="fa fa-times" aria-hidden="true"></i>
+          {{ getSelectedJobTitlesCount() }}</span
+        >
+      </h2>
+
       <mat-chip-set>
-        <mat-chip *ngFor="let jobTitle of selectedJobTitles" (removed)="removeJobTitle(jobTitle)">
+        <mat-chip
+          *ngFor="let jobTitle of selectedJobTitles"
+          (removed)="removeJobTitle(jobTitle)"
+        >
           {{ jobTitle }}
           <mat-icon matChipRemove>cancel</mat-icon>
         </mat-chip>
       </mat-chip-set>
-    
+
       <!-- Job Titles Dropdown -->
       <mat-form-field class="">
         <mat-label>Job Title</mat-label>
-        <mat-select [(ngModel)]="selectedJobTitles" multiple data-te-select-clear-button="true">
-          <mat-option *ngFor="let topping of data" [value]="topping.JobTitles">{{ topping.JobTitles }}</mat-option>
+        <mat-select
+          [(ngModel)]="selectedJobTitles"
+          multiple
+          data-te-select-clear-button="true"
+          
+        >
+          <mat-option
+            *ngFor="let topping of jobname"
+            [value]="topping" 
+            >{{ topping}}</mat-option
+          >
         </mat-select>
       </mat-form-field>
-   
+
       <!-- Employees Chips -->
-      <h2><span class="material-icons">
-        groups
-        </span>
-        <strong style="margin-left: 9px;">Employees</strong> <!-- Display the count of selected employees -->
-        <span style="padding-left: 20px; padding-right: 9px;margin: 20px; border: 1px solid black ;border-radius: 12px;"><i class="fa fa-times" aria-hidden="true"></i> {{ getSelectedEmployeesCount() }}</span> 
-        </h2>
+      <h2>
+        <span class="material-icons"> groups </span>
+        <strong style="margin-left: 9px">Employees</strong>
+        <!-- Display the count of selected employees -->
+        <span
+          style="
+            padding-left: 10px;
+            padding-right: 9px;
+            margin: 20px;
+            border: 1px solid black;
+            border-radius: 12px;
+          "
+          ><i class="fa fa-times" aria-hidden="true"></i>
+          {{ getSelectedEmployeesCount() }}</span
+        >
+      </h2>
       <mat-chip-set>
-        <mat-chip *ngFor="let employee of selectedEmployees" (removed)="removeEmployee(employee)">
+        <mat-chip
+          *ngFor="let employee of selectedEmployees"
+          (removed)="removeEmployee(employee)"
+        >
           {{ employee }}
           <mat-icon matChipRemove>cancel</mat-icon>
         </mat-chip>
@@ -51,19 +88,40 @@
       <!-- Employees Dropdown -->
       <mat-form-field class="">
         <mat-label>Employees</mat-label>
-        <mat-select [(ngModel)]="selectedEmployees" multiple data-te-select-clear-button="true">
-          <mat-option *ngFor="let topping of data" [value]="topping.CompanySize">{{ topping.CompanySize }}</mat-option>
+        <mat-select
+          [(ngModel)]="selectedEmployees"
+          multiple
+          data-te-select-clear-button="true"
+        >
+          <mat-option
+            *ngFor="let topping of companySize"
+            [value]="topping"
+            >{{ topping }}</mat-option
+          >
         </mat-select>
       </mat-form-field>
 
       <!-- Company Names Chips -->
       <h2>
-        <span class="material-icons">
-        apartment
-        </span> <strong style="padding-left: 5px;">Company</strong><!-- Display the count of selected company names --><span style="padding-left: 20px; padding-right: 9px;margin: 35px; border: 1px solid black ;border-radius: 12px;"><i class="fa fa-times" aria-hidden="true"></i>
-          {{ getSelectedCompaniesCount() }}</span>   </h2>
+        <span class="material-icons"> apartment </span>
+        <strong style="padding-left: 5px">Company</strong
+        ><!-- Display the count of selected company names --><span
+          style="
+            padding-left: 10px;
+            padding-right: 9px;
+            margin: 35px;
+            border: 1px solid black;
+            border-radius: 12px;
+          "
+          ><i class="fa fa-times" aria-hidden="true"></i>
+          {{ getSelectedCompaniesCount() }}</span
+        >
+      </h2>
       <mat-chip-set>
-        <mat-chip *ngFor="let companyName of selectedCompanies"   (removed)="removeCompanyName(companyName)">
+        <mat-chip
+          *ngFor="let companyName of selectedCompanies"
+          (removed)="removeCompanyName(companyName)"
+        >
           {{ companyName }}
           <mat-icon matChipRemove>cancel</mat-icon>
         </mat-chip>
@@ -71,8 +129,17 @@
       <!-- Company Names Dropdown -->
       <mat-form-field class="">
         <mat-label>Company</mat-label>
-        <mat-select [(ngModel)]="selectedCompanies" multiple data-te-select-clear-button="true">
-          <mat-option *ngFor="let topping of data" [value]="topping.CompanyName">{{ topping.CompanyName }}</mat-option>
+        <mat-select
+          [(ngModel)]="selectedCompanies"
+          multiple
+          data-te-select-clear-button="true"
+          
+        >
+          <mat-option
+            *ngFor="let topping of companytitle"
+            [value]="topping"
+            >{{ topping }}</mat-option
+          >
         </mat-select>
       </mat-form-field>
     </div>
@@ -81,9 +148,12 @@
   <!-- Main Content Area -->
   <mat-sidenav-content>
     <!-- Navigation Bar -->
-    <nav class="navbar navbar-dark" style="background-color: rgb(244, 232, 232)">
+    <nav
+      class="navbar navbar-dark"
+      style="background-color: #85bab9" 
+    >
       <div class="container-fluid">
-        <h1 style="color: rgb(16, 16, 15); padding-left: 450px; padding-top: 12px">
+        <h1>
           <b class="office">OFFICE DATA</b>
         </h1>
       </div>
@@ -102,7 +172,18 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let row of data | filter: { searchName: searchName, selectedJobTitles: selectedJobTitles, selectedEmployees: selectedEmployees, selectedCompanies: selectedCompanies }">
+          <tr
+            *ngFor="
+              let row of data
+                | filter
+                  : {
+                      searchName: searchName,
+                      selectedJobTitles: selectedJobTitles,
+                      selectedEmployees: selectedEmployees,
+                      selectedCompanies: selectedCompanies
+                    }
+            "
+          >
             <td>{{ row.Name }}</td>
             <td>{{ row.JobTitles }}</td>
             <td>{{ row.CompanyName }}</td>
