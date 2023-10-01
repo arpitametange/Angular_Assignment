@@ -1,19 +1,39 @@
+mat-sidenav-container{
+    height: 100%;
+    /* width: 90%; */
+    padding-top: 0;
+}
+/* mat-sidenav ,mat-sidenav-content{
+    /* padding: 16%; }*/
+mat-sidenav{
+    background-color: #fff;
+    width: 300px;
+}
+
+
+/* side nav code */
+.input{
+    width: 213px;
+}
+
+
+/* main content code */
 th{
-   font-weight: bold;
-   font-size: medium;
-
-}
-th,tr,table,td{
-    text-align: center;
-}
-nav{
-    position: sticky;
-    position: -webkit-sticky;
-    top: 0;
-
-}
-thead{
-    position: sticky;
-    position: -webkit-sticky;
-    top: 75px;
-}
+    font-weight: bold;
+    font-size: medium;
+ 
+ }
+ th,tr,table,td{
+     text-align: center;
+ }
+ nav{
+     position: sticky;
+     position: -webkit-sticky;
+     top: 0;
+ 
+ }
+ thead{
+     position: sticky;
+     position: -webkit-sticky;
+     top: 75px;
+ }

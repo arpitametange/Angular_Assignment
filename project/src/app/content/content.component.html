@@ -1,35 +1,80 @@
-<nav class="navbar navbar-dark " style="background-color: rgb(244, 232, 232);">
-    <div class="container-fluid">
+<mat-sidenav-container>
+  <mat-sidenav mode="side"  opened>
+    <div style="margin-top: 53px; margin-left: 22px;">
+      <div >
+        <h2><strong>Name</strong></h2> 
+        <input matInput #searchName type="text"   class="input" style="height: 30px;" placeholder="Enter name...">
+
+      </div>
+      <br>
+      <h2><strong>Job Title</strong> </h2>
+      <mat-form-field class="">
+        <mat-label>Job Title</mat-label>
+        <mat-select [formControl]="form" 
+        [(ngModel)]="selectedJobTitles" multiple  data-te-select-clear-button="true">
+          <mat-option  *ngFor="let topping of data" [value]="topping.JobTitles">{{topping.JobTitles}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <h2><strong>Employees</strong></h2>
+      <div><mat-form-field class="">
+        <mat-label>Employees</mat-label>
+        <mat-select [formControl]="form" multiple  data-te-select-clear-button="true">
+          <mat-option *ngFor="let topping of data" [value]="topping">{{topping.CompanySize}}</mat-option>
+        </mat-select>
+      </mat-form-field></div>
       
-       <h1 style="color: rgb(16, 16, 15); padding-left: 450px; padding-top: 12px;"><b>OFFICE DATA</b> </h1>
-<!-- content.component.html -->
+      
+      <div>
+      
+      </div>
+      <h2><strong>Company</strong></h2>
+      <mat-form-field class="">
+        <mat-label>Company</mat-label>
+        <mat-select [formControl]="form" multiple  data-te-select-clear-button="true">
+          <mat-option   *ngFor="let topping of data" [value]="topping">{{topping.CompanyName}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      </div>
+      
+      
 
 
- 
-    </div>
-  </nav>
+  </mat-sidenav>
 
-  <div *ngIf="data" style="margin-top: 12px;">
-   <table class="table table-striped">
-     <thead class="bg-danger">
-       <tr>
-         <th scope="col" >Name</th>
-         <th scope="col" >Job Title</th>
-         <th scope="col" >Company Name</th>
-         <th scope="col" >Company Size</th>
-         <th scope="col" >Country</th>
-       
-       </tr>
-     </thead>
-     <tbody>
-       <tr *ngFor="let row of data | filter: searchData ">
-         <td>{{ row.Name }}</td>
-         <td>{{ row.JobTitles }}</td>
-         <td>{{row.CompanyName}}</td>
-         <td>{{row.CompanySize}}</td>
-         <td>{{row.Country}}</td>
+
+  <mat-sidenav-content>
+  
+    <nav class="navbar navbar-dark " style="background-color: rgb(244, 232, 232);">
+      <div class="container-fluid">
         
-       </tr>
-     </tbody>
-   </table>
- </div>
+         <h1 style="color: rgb(16, 16, 15); padding-left: 450px; padding-top: 12px;"><b>OFFICE DATA</b> </h1>
+      </div>
+    </nav>
+  
+    <div *ngIf="data" style="margin-top: 12px;">
+     <table class="table table-striped">
+       <thead class="bg-danger">
+         <tr>
+           <th scope="col" >Name</th>
+           <th scope="col" >Job Title</th>
+           <th scope="col" >Company Name</th>
+           <th scope="col" >Company Size</th>
+           <th scope="col" >Country</th>
+         
+         </tr>
+       </thead>
+       <tbody>
+         <tr *ngFor="let row of data | filter: searchName.value ">
+           <td>{{ row.Name }}</td>
+           <td>{{ row.JobTitles }}</td>
+           <td>{{row.CompanyName}}</td>
+           <td>{{row.CompanySize}}</td>
+           <td>{{row.Country}}</td>
+         </tr>
+       </tbody>
+     </table>
+   </div>
+  
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
