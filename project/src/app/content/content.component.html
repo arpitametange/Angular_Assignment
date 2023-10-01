@@ -9,12 +9,12 @@ filter_alt
     <div style="margin-top: 53px; margin-left: 22px">
       <!-- Name Search -->
      
-      <div>
+      <div >
         <h2>
           <span class="material-icons"> perm_contact_calendar </span
           ><strong style="margin-left: 4px">Name</strong>
         </h2>
-        <mat-form-field class="example-full-width">
+        <mat-form-field [style.width.px]=250 class="example-full-width">
           <mat-label>Name</mat-label>
           <input [(ngModel)]="searchName" matInput placeholder="Ex. linda" />
         </mat-form-field>
@@ -49,7 +49,7 @@ filter_alt
       </mat-chip-set>
 
       <!-- Job Titles Dropdown -->
-      <mat-form-field class="">
+      <mat-form-field [style.width.px]=250  >
         <mat-label>Job Title</mat-label>
         <mat-select
           [(ngModel)]="selectedJobTitles"
@@ -92,7 +92,7 @@ filter_alt
         </mat-chip>
       </mat-chip-set>
       <!-- Employees Dropdown -->
-      <mat-form-field class="">
+      <mat-form-field [style.width.px]=250  >
         <mat-label>Employees</mat-label>
         <mat-select
           [(ngModel)]="selectedEmployees"
@@ -133,7 +133,7 @@ filter_alt
         </mat-chip>
       </mat-chip-set>
       <!-- Company Names Dropdown -->
-      <mat-form-field class="">
+      <mat-form-field [style.width.px]=250 >
         <mat-label>Company</mat-label>
         <mat-select
           [(ngModel)]="selectedCompanies"
