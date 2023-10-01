@@ -4,20 +4,14 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'filter'
 })
 export class FilterPipe implements PipeTransform {
-  transform(value: any, searchTearm: any): any {
-    if (!searchTearm || typeof searchTearm !== 'string') {
-      return value;
-    }
-    const searchTerms: string[] = searchTearm.toLowerCase().split(',');
+  transform(items: any[], filters: any): any {
+    return items.filter(item => {
+      const nameMatch = item.Name.toLowerCase().includes(filters.searchName.toLowerCase());
+      const jobTitlesMatch = filters.selectedJobTitles.length === 0 || filters.selectedJobTitles.includes(item.JobTitles);
+      const employeesMatch = filters.selectedEmployees.length === 0 || filters.selectedEmployees.includes(item.CompanySize);
+      const companiesMatch = filters.selectedCompanies.length === 0 || filters.selectedCompanies.includes(item.CompanyName);
 
-    return value.filter(function(search: any) {
-      const name: string = search.Name.toLowerCase() 
-
-      // Check if any of the search terms are included in the name
-      return searchTerms.some(term => name.includes(term.trim()));
-
-      
+      return nameMatch && jobTitlesMatch && employeesMatch && companiesMatch;
     });
   }
-  
 }

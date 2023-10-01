@@ -5,7 +5,7 @@ mat-sidenav-container{
 }
 
 mat-sidenav{
-    background-color: #fff;
+    background-color: rgb(244, 232, 232);
     width: 300px;
 }
 
@@ -35,4 +35,10 @@ th{
      position: sticky;
      position: -webkit-sticky;
      top: 75px;
+ }
+
+ .office{
+    font-family: 'Playfair Display SC', serif;
+font-family: 'Young Serif', serif;
+color: rgb(30, 9, 49);
  }

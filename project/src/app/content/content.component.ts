@@ -9,13 +9,16 @@ import { read, utils } from 'xlsx';
 })
 export class ContentComponent {
   // Side nav related variables
-  data: any; // Variable to store fetched data from Excel
-  
+  searchName: string = '';
+  selectedJobTitles: string[] = [];
+  selectedEmployees: string[] = [];
+  selectedCompanies: string[] = [];
+  data: any;
 
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
-    // Fetch data from Excel file when the component initializes
+    /// Fetch data from Excel file when the component initializes
     this.http
       .get('/assets/Data.xlsx', { responseType: 'arraybuffer' })
       .subscribe((data: any) => {
@@ -27,4 +30,48 @@ export class ContentComponent {
         console.log(this.data); // Log the fetched data for debugging
       });
   }
+
+
+  // Method to remove Job Title chip
+  removeJobTitle(jobTitle: string): void {
+    const index = this.selectedJobTitles.indexOf(jobTitle);
+    if (index >= 0) {
+      this.selectedJobTitles.splice(index, 1);
+      this.selectedJobTitles = [...this.selectedJobTitles]; // Update ngModel to trigger change detection
+    }
+  }
+  
+  removeEmployee(employee: string): void {
+    const index = this.selectedEmployees.indexOf(employee);
+    if (index >= 0) {
+      this.selectedEmployees.splice(index, 1);
+      this.selectedEmployees = [...this.selectedEmployees]; // Update ngModel to trigger change detection
+    }
+  }
+  
+  removeCompanyName(companyName: string): void {
+    const index = this.selectedCompanies.indexOf(companyName);
+    if (index >= 0) {
+      this.selectedCompanies.splice(index, 1);
+      this.selectedCompanies = [...this.selectedCompanies]; // Update ngModel to trigger change detection
+    }
+  }
+  
+
+ // Method to get the count of selected job titles
+ getSelectedJobTitlesCount(): number {
+  return this.selectedJobTitles.length;
+}
+
+// Method to get the count of selected employees
+getSelectedEmployeesCount(): number {
+  return this.selectedEmployees.length;
+}
+
+// Method to get the count of selected company names
+getSelectedCompaniesCount(): number {
+  return this.selectedCompanies.length;
+}
+
+
 }
